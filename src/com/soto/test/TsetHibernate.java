@@ -4,11 +4,14 @@ package com.soto.test;
 import com.soto.pojo.Category;
 import com.soto.pojo.Product;
 import com.soto.pojo.User;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Restrictions;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class TsetHibernate {
@@ -69,7 +72,23 @@ public class TsetHibernate {
 //
 //        p1.setUsers(users);
 //        s.save(p1);
+        /**
+         *分页 测试
+         */
+        String name = "iphone";
 
+        Criteria c = s.createCriteria(Product.class);
+        c.add(Restrictions.like("name", "%" + name + "%"));
+//        表示从第2条数据开始
+        c.setFirstResult(2);
+//        一共查询5条数据
+        c.setMaxResults(5);
+
+        List<Product> ps = c.list();
+        for (Product p : ps) {
+            System.out.println(p.getName());
+
+        }
 
 
 //        s.delete(p);
