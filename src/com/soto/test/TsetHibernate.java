@@ -16,13 +16,20 @@ public class TsetHibernate {
         s.beginTransaction();
 
 //        4. 通过调用Session的save方法把对象保存到数据库
-        for (int i = 0; i < 10; i++) {
-            Product p = new Product();
-            p.setName("iphone" + i);
-            p.setPrice(i);
-            s.save(p);
+//        for (int i = 0; i < 10; i++) {
+//            Product p = new Product();
+//            p.setName("iphone" + i);
+//            p.setPrice(i);
+//            s.save(p);
+//
+//        }
 
-        }
+        Product p = (Product)s.get(Product.class, 3);
+        System.out.println("id=6的产品名称是: " + p.getName());
+
+        p.setName("iphonr-modified");
+        s.update(p);
+//        s.delete(p);
 
 //        5. 提交事务
         s.getTransaction().commit();
