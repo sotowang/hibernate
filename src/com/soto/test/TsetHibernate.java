@@ -58,17 +58,17 @@ public class TsetHibernate {
          * 测试may-to-many
          */
         //增加3个用户
-        Set<User> users = new HashSet();
-        for (int i = 0; i < 3; i++) {
-            User u =new User();
-            u.setName("user"+i);
-            users.add(u);
-            s.save(u);
-        }
-        Product p1 = (Product) s.get(Product.class, 5);
-
-        p1.setUsers(users);
-        s.save(p1);
+//        Set<User> users = new HashSet();
+//        for (int i = 0; i < 3; i++) {
+//            User u =new User();
+//            u.setName("user"+i);
+//            users.add(u);
+//            s.save(u);
+//        }
+//        Product p1 = (Product) s.get(Product.class, 5);
+//
+//        p1.setUsers(users);
+//        s.save(p1);
 
 
 

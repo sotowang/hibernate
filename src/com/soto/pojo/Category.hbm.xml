@@ -4,12 +4,14 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.soto.pojo">
     <class name="Category" table="category_">
+        <!--对于要进行二级缓存的实体类，进行配置-->
+        <cache usage="read-only"/>
         <id name="id" column="id">
             <generator class="native">
             </generator>
         </id>
         <property name="name"/>
-        <set name="products" lazy="false">
+        <set name="products" lazy="false" cascade="delete">
             <key column="cid" not-null="false"></key>
             <one-to-many class="Product"/>
         </set>

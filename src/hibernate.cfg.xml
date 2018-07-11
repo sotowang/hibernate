@@ -24,6 +24,10 @@
         <!--这表示是否会自动更新数据库的表结构，有这句话，其实是不需要创建表的，因为Hibernate会自动去创建表结构-->
         <property name="hbm2ddl.auto">update</property>
 
+
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+
         <!--这表示Hibernate会去识别Product这个实体类-->
         <mapping resource="com/soto/pojo/Product.hbm.xml" />
         <mapping resource="com/soto/pojo/Category.hbm.xml"/>
