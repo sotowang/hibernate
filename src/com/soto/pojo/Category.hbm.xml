@@ -3,18 +3,15 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.soto.pojo">
-    <class name="Product" table="product_">
+    <class name="Category" table="category_">
         <id name="id" column="id">
             <generator class="native">
             </generator>
         </id>
         <property name="name"/>
-        <property name="price"/>
-        <many-to-one name="category" class="Category" column="cid"/>
-
-        <set name="users" lazy="false" table="user_product">
-            <key column="pid" />
-            <many-to-many column="uid" class="User"/>
+        <set name="products" lazy="false">
+            <key column="cid" not-null="false"></key>
+            <one-to-many class="Product"/>
         </set>
     </class>
 </hibernate-mapping>

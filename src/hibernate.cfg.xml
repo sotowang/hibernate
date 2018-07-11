@@ -26,6 +26,8 @@
 
         <!--这表示Hibernate会去识别Product这个实体类-->
         <mapping resource="com/soto/pojo/Product.hbm.xml" />
+        <mapping resource="com/soto/pojo/Category.hbm.xml"/>
+        <mapping resource="com/soto/pojo/User.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>
